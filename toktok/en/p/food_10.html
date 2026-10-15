@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Color “Burger” with me | TokTok Color Book</title>
+<meta name="description" content="Follow the numbers and real artwork appears cell by cell. Every picture has five levels, and you can color your own photos too.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TokTok Color Book">
+<meta property="og:title" content="Color “Burger” with me | TokTok Color Book">
+<meta property="og:description" content="Follow the numbers and real artwork appears cell by cell. Every picture has five levels, and you can color your own photos too.">
+<meta property="og:image" content="https://luminwis-commits.github.io/toktok/img/food_10.jpg">
+<meta property="og:url" content="https://luminwis-commits.github.io/toktok/en/p/food_10">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=6820321010, app-argument=toktokcolorbook://p/food_10">
+<meta name="theme-color" content="#F2F1EE">
+<link rel="icon" href="https://luminwis-commits.github.io/toktok/img/icon.png">
+<style>
+:root { --bg:#F2F1EE; --card:#FFFFFF; --ink:#2E2A24; --muted:#7A7264; --accent:#3F6FD8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#1E1E22; --card:#2A2A30; --ink:#F2F1EE; --muted:#A8A195; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif; }
+main { max-width:440px; margin:0 auto; padding:24px 16px 40px; text-align:center; }
+.app { display:flex; align-items:center; justify-content:center; gap:10px; font-weight:800; font-size:18px; margin-bottom:18px; }
+.app img { width:40px; height:40px; border-radius:10px; }
+.pic { width:100%; aspect-ratio:1; object-fit:cover; border-radius:18px; box-shadow:0 8px 24px rgba(0,0,0,.12); background:var(--card); }
+h1 { font-size:24px; margin:22px 0 8px; }
+p { color:var(--muted); line-height:1.55; margin:0 0 20px; }
+.btn { display:block; padding:16px; border-radius:14px; font-weight:700; font-size:17px; text-decoration:none; margin-top:10px; }
+.primary { background:var(--accent); color:#fff; }
+.secondary { background:var(--card); color:var(--accent); }
+.note { font-size:13px; margin-top:14px; }
+.hidden { display:none; }
+</style>
+</head>
+<body>
+<main>
+  <div class="app"><img src="https://luminwis-commits.github.io/toktok/img/icon.png" alt="">TokTok Color Book</div>
+  <img class="pic" src="https://luminwis-commits.github.io/toktok/img/food_10.jpg" alt="">
+  <h1>Let&#x27;s color “Burger” together!</h1>
+  <p>Follow the numbers and real artwork appears cell by cell. Every picture has five levels, and you can color your own photos too.</p>
+  <a id="get-ios" class="btn primary" href="https://apps.apple.com/app/id6820321010">Download on the App Store</a>
+  <a id="get-android" class="btn primary" href="https://play.google.com/store/apps/details?id=com.toktokcolorbook.app&referrer=p%3Dfood_10">Get it on Google Play</a>
+  <a id="open" class="btn secondary" href="toktokcolorbook://p/food_10">Open in the app</a>
+  <p id="note" class="note"></p>
+</main>
+<script>
+(function () {
+  var ua = navigator.userAgent;
+  var android = /Android/i.test(ua);
+  var ios = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var note = document.getElementById('note');
+  if (android) {
+    document.getElementById('get-ios').classList.add('hidden');
+    // 앱이 있으면 앱을 열고, 없으면 플레이스토어로 (그림 id를 넘겨 설치 후 바로 연다)
+    var intent = 'intent://p/food_10#Intent;scheme=toktokcolorbook;package=com.toktokcolorbook.app;S.browser_fallback_url=' + encodeURIComponent('https://play.google.com/store/apps/details?id=com.toktokcolorbook.app&referrer=p%3Dfood_10') + ';end';
+    document.getElementById('open').href = intent;
+    document.getElementById('get-android').href = intent;
+    note.textContent = 'Open the app after installing and this picture is ready.';
+    location.href = intent;
+  } else if (ios) {
+    document.getElementById('get-android').classList.add('hidden');
+    note.textContent = 'After installing, tap this link again to open the picture.';
+    // 앱이 있었다면 링크를 누를 때 이미 앱이 열렸다. 여기 남아 있으면 앱스토어로
+    setTimeout(function () { if (!document.hidden) location.href = 'https://apps.apple.com/app/id6820321010'; }, 2500);
+  } else {
+    document.getElementById('open').classList.add('hidden');
+  }
+})();
+</script>
+</body>
+</html>
