@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>연못의 비단잉어 같이 칠해요 | 톡톡컬러북</title>
+<meta name="description" content="번호를 따라 톡톡 누르면 칸마다 진짜 그림이 나타나요. 같은 그림을 Lv.1~5 난이도로, 내 사진으로도 칠할 수 있어요.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="톡톡컬러북">
+<meta property="og:title" content="연못의 비단잉어 같이 칠해요 | 톡톡컬러북">
+<meta property="og:description" content="번호를 따라 톡톡 누르면 칸마다 진짜 그림이 나타나요. 같은 그림을 Lv.1~5 난이도로, 내 사진으로도 칠할 수 있어요.">
+<meta property="og:image" content="https://luminwis-commits.github.io/toktok/img/animals_koi.jpg">
+<meta property="og:url" content="https://luminwis-commits.github.io/toktok/p/animals_koi">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=6820321010, app-argument=toktokcolorbook://p/animals_koi">
+<meta name="theme-color" content="#F2F1EE">
+<link rel="icon" href="https://luminwis-commits.github.io/toktok/img/icon.png">
+<style>
+:root { --bg:#F2F1EE; --card:#FFFFFF; --ink:#2E2A24; --muted:#7A7264; --accent:#3F6FD8; }
+@media (prefers-color-scheme: dark) { :root { --bg:#1E1E22; --card:#2A2A30; --ink:#F2F1EE; --muted:#A8A195; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif; }
+main { max-width:440px; margin:0 auto; padding:24px 16px 40px; text-align:center; }
+.app { display:flex; align-items:center; justify-content:center; gap:10px; font-weight:800; font-size:18px; margin-bottom:18px; }
+.app img { width:40px; height:40px; border-radius:10px; }
+.pic { width:100%; aspect-ratio:1; object-fit:cover; border-radius:18px; box-shadow:0 8px 24px rgba(0,0,0,.12); background:var(--card); }
+h1 { font-size:24px; margin:22px 0 8px; }
+p { color:var(--muted); line-height:1.55; margin:0 0 20px; }
+.btn { display:block; padding:16px; border-radius:14px; font-weight:700; font-size:17px; text-decoration:none; margin-top:10px; }
+.primary { background:var(--accent); color:#fff; }
+.secondary { background:var(--card); color:var(--accent); }
+.note { font-size:13px; margin-top:14px; }
+.hidden { display:none; }
+</style>
+</head>
+<body>
+<main>
+  <div class="app"><img src="https://luminwis-commits.github.io/toktok/img/icon.png" alt="">톡톡컬러북</div>
+  <img class="pic" src="https://luminwis-commits.github.io/toktok/img/animals_koi.jpg" alt="">
+  <h1>‘연못의 비단잉어’ 같이 칠해요!</h1>
+  <p>번호를 따라 톡톡 누르면 칸마다 진짜 그림이 나타나요. 같은 그림을 Lv.1~5 난이도로, 내 사진으로도 칠할 수 있어요.</p>
+  <a id="get-ios" class="btn primary" href="https://apps.apple.com/app/id6820321010">App Store에서 받기</a>
+  <a id="get-android" class="btn primary" href="https://play.google.com/store/apps/details?id=com.toktokcolorbook.app&referrer=p%3Danimals_koi">Google Play에서 받기</a>
+  <a id="open" class="btn secondary" href="toktokcolorbook://p/animals_koi">앱에서 열기</a>
+  <p id="note" class="note"></p>
+</main>
+<script>
+(function () {
+  var ua = navigator.userAgent;
+  var android = /Android/i.test(ua);
+  var ios = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var note = document.getElementById('note');
+  if (android) {
+    document.getElementById('get-ios').classList.add('hidden');
+    // 앱이 있으면 앱을 열고, 없으면 플레이스토어로 (그림 id를 넘겨 설치 후 바로 연다)
+    var intent = 'intent://p/animals_koi#Intent;scheme=toktokcolorbook;package=com.toktokcolorbook.app;S.browser_fallback_url=' + encodeURIComponent('https://play.google.com/store/apps/details?id=com.toktokcolorbook.app&referrer=p%3Danimals_koi') + ';end';
+    document.getElementById('open').href = intent;
+    document.getElementById('get-android').href = intent;
+    note.textContent = '설치하고 처음 켜면 이 그림이 바로 열려요.';
+    location.href = intent;
+  } else if (ios) {
+    document.getElementById('get-android').classList.add('hidden');
+    note.textContent = '앱을 설치한 뒤 이 링크를 다시 누르면 그림이 바로 열려요.';
+    // 앱이 있었다면 링크를 누를 때 이미 앱이 열렸다. 여기 남아 있으면 앱스토어로
+    setTimeout(function () { if (!document.hidden) location.href = 'https://apps.apple.com/app/id6820321010'; }, 2500);
+  } else {
+    document.getElementById('open').classList.add('hidden');
+  }
+})();
+</script>
+</body>
+</html>

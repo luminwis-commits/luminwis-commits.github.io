@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.toktokcolorbook.app",
+      "sha256_cert_fingerprints": [
+        "5E:1D:E5:A1:16:3B:B3:79:6C:D5:E8:9A:9F:49:8C:91:02:DF:DD:19:2B:B1:E0:3F:52:25:3E:B9:66:B2:13:E1",
+        "58:F8:43:4D:80:A4:BD:EC:B2:FC:7E:AB:11:96:AB:86:55:2B:BF:27:62:10:03:F8:E0:31:45:49:7D:E0:0E:C3"
+      ]
+    }
+  }
+]

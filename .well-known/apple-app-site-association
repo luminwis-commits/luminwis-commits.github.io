@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "Z3NX38M5T6.com.toktokcolorbook.app"
+        ],
+        "components": [
+          {
+            "/": "/toktok/*",
+            "comment": "TokTok Color Book share links"
+          }
+        ]
+      }
+    ]
+  }
+}
